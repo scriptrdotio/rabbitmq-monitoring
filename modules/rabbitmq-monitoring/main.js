@@ -7,12 +7,14 @@ log.setLevel("info");
  * Rabbitmq monitoring client
  * @class RabbitMQMonitoringClient
  * @constructor RabbitMQMonitoringClient
- * 
+ * @param clientConf a dictionary containing all required conf (USERNAME, PASSWORD, ENDPOINT)
  */
 function RabbitMQMonitoringClient(clientConf) {
-	this.username = config.USERNAME;
-    this.password = config.PASSWORD;
-    this.endpoint = config.ENDPOINT
+    if(clientConf == null)
+        clientConf = config;
+	this.username = clientConf.USERNAME;
+    this.password = clientConf.PASSWORD;
+    this.endpoint = clientConf.ENDPOINT
 }
 
 /*
